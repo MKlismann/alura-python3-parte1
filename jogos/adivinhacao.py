@@ -4,13 +4,16 @@ print("******************************************************************")
 
 numero_secreto      = 42
 total_de_tentativas = 3
-rodada              = 1
 
-while (rodada <= total_de_tentativas):
-    print("\nTentativa {} de {}".format(rodada, total_de_tentativas))
-    chute = input("Digite um número (palpite): ")
+for rodada in range(1, total_de_tentativas + 1):
+    print(f"\nTentativa {rodada} de {total_de_tentativas}")
+    chute = input("Digite um número (palpite) entre 1 e 100: ")
     chute = int(chute)
     print("\nVocê digitou: {}".format(chute))
+
+    if (chute < 1 or chute > 100):
+        print("Você deve digitar um número entre 1 e 100!!!")
+        continue
 
     palpite_correto = chute == numero_secreto
     palpite_maior   = chute > numero_secreto
@@ -18,6 +21,7 @@ while (rodada <= total_de_tentativas):
 
     if(palpite_correto):
         print("Parabéns, você acertou! \o/")
+        break
     else:
         if(palpite_maior):
             print("Que pena, você errou! :(  O seu palpite foi maior do que o número secreto.")
