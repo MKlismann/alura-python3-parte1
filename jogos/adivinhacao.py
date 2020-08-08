@@ -12,14 +12,18 @@ numero_secreto = round(random.randrange(1, 101))
 pontos = 1000
 
 # Define a quantidade máxima de tentativas/palpites no jogo, de acordo com o nível escolhido pelo jogador.
+total_de_tentativas = 0
 nivel = input("\nEscolha o nível de dificuldade do jogo \n1 - Fácil \n2 - Médio \n3 - Difícil \n-> Nível selecionado: ")
-nivel = int(nivel)
-if nivel == 1:
-    total_de_tentativas = 20
-elif nivel == 2:
-    total_de_tentativas = 10
-else:
-    total_de_tentativas = 5
+while total_de_tentativas == 0:
+    nivel = int(nivel)
+    if nivel == 1:
+        total_de_tentativas = 20
+    elif nivel == 2:
+        total_de_tentativas = 10
+    elif nivel == 3:
+        total_de_tentativas = 5
+    else:
+        nivel = input("\nOpção inválida!!!\nEscolha o nível de dificuldade do jogo \n1 - Fácil \n2 - Médio \n3 - Difícil \n-> Nível selecionado: ")
 
 print(f"\nSua pontuação inicial é de {pontos} pontos.")
 
